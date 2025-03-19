@@ -1,0 +1,382 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "PlayStation 5 Digital Edition",
+      "price": 399.99,
+      "category": "Gaming & Consoles",
+      "image": "https://images.unsplash.com/photo-1607016284318-d1384bf5edd1?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "rating": 4.8,
+      "reviewCount": 1250,
+      "discount": 0,
+      "isNew": true,
+      "description": "Experience lightning-fast loading with an ultra-high speed SSD, deeper immersion with support for haptic feedback, adaptive triggers, and 3D Audio.",
+      "highlights": [
+        "Ultra-high speed SSD",
+        "Ray tracing support",
+        "4K-TV Gaming",
+        "8K Output",
+        "HDR Technology"
+      ],
+      "specifications": {
+        "CPU": "AMD Zen 2-based CPU with 8 cores at 3.5GHz",
+        "GPU": "10.28 TFLOPs, AMD RDNA 2-based GPU",
+        "RAM": "16GB GDDR6",
+        "Storage": "825GB SSD",
+        "Resolution": "Native 4K support"
+      },
+      "features": [
+        {
+          "title": "DualSense Controller",
+          "description": "Experience gaming with innovative haptic feedback and dynamic trigger effects."
+        },
+        {
+          "title": "3D Audio",
+          "description": "Immerse yourself in soundscapes where you can hear individual raindrops."
+        },
+        {
+          "title": "Ray Tracing",
+          "description": "Ray tracing delivers realistic lighting and shadows in supported games."
+        }
+      ],
+      "stock": 15,
+      "sku": "PS5-DIG-001",
+      "brand": "Sony",
+      "warranty": "1 Year International Warranty"
+    },
+    {
+      "id": "2",
+      "name": "Xbox Series X",
+      "price": 499.99,
+      "category": "Gaming & Consoles",
+      "image": "https://images.unsplash.com/photo-1621259182978-fbf93132d53d?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "rating": 4.7,
+      "reviewCount": 980,
+      "discount": 10,
+      "isNew": false,
+      "description": "The fastest, most powerful Xbox ever. Play thousands of titles across four generations of consoles with backward compatibility.",
+      "highlights": [
+        "12 Teraflops of power",
+        "Variable Refresh Rate",
+        "4K Gaming",
+        "8K HDR",
+        "Quick Resume"
+      ],
+      "specifications": {
+        "CPU": "Custom AMD Zen 2 8-core at 3.8GHz",
+        "GPU": "12 TFLOPs, RDNA 2 architecture",
+        "RAM": "16GB GDDR6",
+        "Storage": "1TB NVMe SSD",
+        "Resolution": "True 4K Gaming"
+      },
+      "features": [
+        {
+          "title": "Velocity Architecture",
+          "description": "Enables faster load times and seamless gameplay."
+        },
+        {
+          "title": "Backward Compatibility",
+          "description": "Play thousands of games across four generations."
+        },
+        {
+          "title": "Smart Delivery",
+          "description": "Optimized versions of games automatically delivered to your console."
+        }
+      ],
+      "stock": 20,
+      "sku": "XBX-SERIESX-002",
+      "brand": "Microsoft",
+      "warranty": "1 Year Manufacturer Warranty"
+    },
+    {
+      "id": "3",
+      "name": "Sony WH-1000XM4",
+      "price": 349.99,
+      "category": "Audio Equipments",
+      "image": "https://images.unsplash.com/photo-1577174881658-0f30ed549adc?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "rating": 4.9,
+      "reviewCount": 2100,
+      "discount": 15,
+      "isNew": false,
+      "description": "Industry-leading noise-canceling headphones with intelligent features and long battery life.",
+      "highlights": [
+        "Best-in-class noise cancellation",
+        "Up to 30 hours battery life",
+        "Touch control for music and calls",
+        "Adaptive sound control",
+        "Multi-device connectivity"
+      ],
+      "specifications": {
+        "Driver Unit": "40mm dome-type",
+        "Noise Cancellation": "Industry-leading active noise cancelation",
+        "Battery Life": "Up to 30 hours",
+        "Charging Time": "3 hours for full charge",
+        "Connectivity": "Bluetooth 5.0, NFC, 3.5mm Jack"
+      },
+      "features": [
+        {
+          "title": "Adaptive Sound Control",
+          "description": "Automatically adjusts sound settings based on your surroundings."
+        },
+        {
+          "title": "Speak-to-Chat",
+          "description": "Pauses music when you start speaking."
+        },
+        {
+          "title": "Quick Charge",
+          "description": "10 minutes of charge gives 5 hours of playback."
+        }
+      ],
+      "stock": 50,
+      "sku": "WH-1000XM4-003",
+      "brand": "Sony",
+      "warranty": "1 Year International Warranty"
+    },
+    {
+      "id": "4",
+      "name": "Nintendo Switch OLED Model",
+      "price": 349.99,
+      "category": "Gaming & Consoles",
+      "image": "https://images.unsplash.com/photo-1591182136289-67ff16828fd4?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "rating": 4.7,
+      "reviewCount": 1450,
+      "discount": 0,
+      "isNew": true,
+      "description": "Enjoy vibrant colors and sharp contrast with the 7-inch OLED screen. Perfect for handheld and tabletop gaming.",
+      "highlights": [
+        "7-inch OLED screen",
+        "Enhanced audio",
+        "64GB internal storage",
+        "Wide adjustable stand",
+        "Dock with wired LAN port"
+      ],
+      "specifications": {
+        "Screen": "7-inch OLED",
+        "Storage": "64GB",
+        "Battery Life": "4.5-9 hours",
+        "Resolution": "720p handheld, 1080p docked"
+      },
+      "features": [
+        {
+          "title": "Handheld & TV Mode",
+          "description": "Switch seamlessly between handheld, tabletop, and TV modes."
+        },
+        {
+          "title": "Local Multiplayer",
+          "description": "Enjoy local multiplayer gaming with friends and family."
+        },
+        {
+          "title": "Nintendo eShop",
+          "description": "Access a wide library of games and downloadable content."
+        }
+      ],
+      "stock": 25,
+      "sku": "NSW-OLED-001",
+      "brand": "Nintendo",
+      "warranty": "1 Year Limited Warranty"
+    },
+    {
+      "id": "5",
+      "name": "Logitech G Pro X Superlight",
+      "price": 149.99,
+      "category": "Computer Accessories",
+      "image": "https://images.unsplash.com/photo-1616071358846-9f34f471815d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "rating": 4.8,
+      "reviewCount": 1800,
+      "discount": 5,
+      "isNew": true,
+      "description": "Ultra-lightweight wireless gaming mouse designed for esports professionals with HERO 25K sensor.",
+      "highlights": [
+        "HERO 25K Sensor",
+        "63g Ultra-lightweight",
+        "Zero-additive PTFE Feet",
+        "LIGHTSPEED Wireless",
+        "70-hour Battery Life"
+      ],
+      "specifications": {
+        "Sensor": "HERO 25K",
+        "Weight": "63g",
+        "DPI": "100-25,600",
+        "Connectivity": "Wireless LIGHTSPEED",
+        "Battery Life": "Up to 70 hours"
+      },
+      "features": [
+        {
+          "title": "Pro-Grade Performance",
+          "description": "Designed for competitive gaming with ultra-low latency."
+        },
+        {
+          "title": "Long Battery Life",
+          "description": "70 hours of non-stop gaming on a single charge."
+        },
+        {
+          "title": "Ultra-Lightweight",
+          "description": "Weighs only 63g for smooth and precise movements."
+        }
+      ],
+      "stock": 25,
+      "sku": "LOG-GPROXSL-010",
+      "brand": "Logitech",
+      "warranty": "2 Years Manufacturer Warranty"
+    },
+    {
+      "id": "6",
+      "name": "Corsair K100 RGB Mechanical Keyboard",
+      "price": 229.99,
+      "category": "Computer Accessories",
+      "image": "https://images.unsplash.com/photo-1625130694338-4110ba634e59?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fE1lY2hhbmljYWwlMjBLZXlib2FyZHxlbnwwfHwwfHx8MA%3D%3D",
+      "rating": 4.9,
+      "reviewCount": 950,
+      "discount": 10,
+      "isNew": false,
+      "description": "The most advanced Corsair mechanical gaming keyboard with OPX optical-mechanical switches and iCUE control.",
+      "highlights": [
+        "Corsair OPX Optical Switches",
+        "AXON Hyper-Processing Technology",
+        "iCUE Control Wheel",
+        "Dynamic Per-Key RGB Lighting",
+        "100% Anti-Ghosting & N-Key Rollover"
+      ],
+      "specifications": {
+        "Switch Type": "Corsair OPX Optical",
+        "Polling Rate": "8,000Hz",
+        "Connectivity": "Wired USB",
+        "Backlight": "Per-Key RGB",
+        "Weight": "1.3 kg"
+      },
+      "features": [
+        {
+          "title": "OPX Optical Switches",
+          "description": "Delivers lightning-fast actuation and ultra-smooth keystrokes."
+        },
+        {
+          "title": "Dedicated Media Controls",
+          "description": "Easily manage your music and volume with a customizable iCUE wheel."
+        },
+        {
+          "title": "Aluminum Frame",
+          "description": "Durable and premium build quality for long-term use."
+        }
+      ],
+      "stock": 18,
+      "sku": "COR-K100RGB-011",
+      "brand": "Corsair",
+      "warranty": "2 Years Limited Warranty"
+    },
+    {
+      "id": "7",
+      "name": "SteelSeries Arctis Nova Pro Wireless",
+      "price": 349.99,
+      "category": "Audio Equipments",
+      "image": "https://media.steelseriescdn.com/thumbs/filer_public/17/86/1786f577-dec0-4119-848f-640214afaff2/arctis_nova_pro_wl_white_img_buy_2_2.png__1850x800_crop-scale_optimize_subsampling-2.png",
+      "rating": 4.8,
+      "reviewCount": 1300,
+      "discount": 10,
+      "isNew": true,
+      "description": "High-fidelity gaming headset with dual wireless, ANC, and Sonar Spatial Audio.",
+      "highlights": [
+        "Active Noise Cancellation",
+        "Dual Wireless Technology",
+        "Hi-Res Audio Certified",
+        "Retractable ClearCast 2 Mic",
+        "Hot-Swappable Battery System"
+      ],
+      "specifications": {
+        "Drivers": "Premium High Fidelity",
+        "Noise Cancellation": "Active Noise Cancellation (ANC)",
+        "Battery Life": "Up to 40 hours",
+        "Connectivity": "2.4GHz Wireless & Bluetooth",
+        "Microphone": "Retractable ClearCast Gen 2"
+      },
+      "features": [
+        {
+          "title": "ANC & Transparency Mode",
+          "description": "Block out noise or hear your surroundings with the click of a button."
+        },
+        {
+          "title": "Dual Wireless",
+          "description": "Seamlessly switch between 2.4GHz gaming and Bluetooth for mobile use."
+        },
+        {
+          "title": "Sonar Spatial Audio",
+          "description": "Experience 360-degree immersive sound with software enhancements."
+        }
+      ],
+      "stock": 20,
+      "sku": "SS-ARCTISPRO-012",
+      "brand": "SteelSeries",
+      "warranty": "1 Year Manufacturer Warranty"
+    },
+    {
+      "id": "8",
+      "name": "ASUS ROG Strix RTX 4080",
+      "price": 1299.99,
+      "category": "Computer Components",
+      "image": "https://dlcdnwebimgs.asus.com/gain/8D660E23-25B8-4DCB-BF57-015CCEA56176/w717/h525",
+      "rating": 4.7,
+      "reviewCount": 1500,
+      "discount": 5,
+      "isNew": false,
+      "description": "Next-generation gaming graphics card with AI-powered DLSS 3, ray tracing, and massive VRAM capacity.",
+      "highlights": [
+        "16GB GDDR6X Memory",
+        "AI-Powered DLSS 3",
+        "Real-Time Ray Tracing",
+        "PCIe 4.0 Support",
+        "Custom ROG Strix Cooling"
+      ],
+      "specifications": {
+        "CUDA Cores": "9728",
+        "Boost Clock": "2.51 GHz",
+        "Memory": "16GB GDDR6X",
+        "TDP": "320W",
+        "Ports": "3x DisplayPort 1.4a, 1x HDMI 2.1"
+      },
+      "features": [
+        {
+          "title": "Ray Tracing & DLSS 3",
+          "description": "AI-driven rendering for next-gen gaming performance."
+        },
+        {
+          "title": "Advanced Cooling",
+          "description": "Triple fan cooling system with Axial-tech design."
+        },
+        {
+          "title": "PCIe 4.0 Support",
+          "description": "Unparalleled performance with high-bandwidth connection."
+        }
+      ],
+      "stock": 15,
+      "sku": "ASUS-RTX4080-013",
+      "brand": "ASUS",
+      "warranty": "3 Years Limited Warranty"
+    }
+  ],
+  "users": [
+    {
+      "id": "500e",
+      "email": "kundanbandaru@gmail.com",
+      "password": "kundan2003",
+      "firstName": "Kundan",
+      "lastName": "Bandaru",
+      "name": "Kundan Bandaru",
+      "phone": "9866471101",
+      "addresses": [
+        {
+          "street": "14-240, Radharam Auditors, VL Puram",
+          "city": "Rajahmundry",
+          "state": "Andhra Pradesh",
+          "zipCode": "533107",
+          "country": "India"
+        }
+      ],
+      "orders": [],
+      "cart": [
+        {
+          "productId": "5",
+          "quantity": 1
+        }
+      ]
+    }
+  ]
+}
