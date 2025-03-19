@@ -108,7 +108,7 @@ export const Login = () => {
   // Redirect if already authenticated
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/cart');
+      navigate('/products');
     }
   }, [isAuthenticated, navigate]);
 

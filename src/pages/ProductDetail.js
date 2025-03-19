@@ -28,6 +28,7 @@ import {
 } from '@mui/icons-material';
 import { blueGrey } from '@mui/material/colors';
 import { useCart } from '../context/CartContext'; // Import the cart hook
+import { useAuth } from '../context/AuthContext'; // Import the auth hook - assume it exists
 
 export const ProductDetail = () => {
   const { id } = useParams();
@@ -40,6 +41,8 @@ export const ProductDetail = () => {
   
   // Get cart functions from context
   const { addToCart } = useCart();
+  // Get user from auth context
+  const { user } = useAuth(); // Changed from currentUser to user
 
   useEffect(() => {
     fetchProduct();
@@ -73,8 +76,19 @@ export const ProductDetail = () => {
 
   const handleAddToCart = async () => {
     try {
-      // In a real app, get userId from auth context
-      const userId = "500e";
+      if (!user || !user.id) { // Changed from currentUser to user
+        // Redirect to login if user is not authenticated
+        setNotification({
+          open: true,
+          message: 'Please log in to add items to your cart',
+          severity: 'warning'
+        });
+        // Optionally redirect to login page
+        // navigate('/login', { state: { from: `/products/${id}` } });
+        return;
+      }
+
+      const userId = user.id; // Changed from currentUser to user
       
       // Get current user data including their cart
       const response = await fetch(`http://localhost:3000/users/${userId}`);
@@ -106,6 +120,11 @@ export const ProductDetail = () => {
       });
       
       if (!updateResponse.ok) throw new Error("Failed to update cart");
+      
+      // Add to cart context if available
+      if (typeof addToCart === 'function') {
+        addToCart(product, quantity);
+      }
       
       setNotification({
         open: true,

@@ -373,8 +373,20 @@
       "orders": [],
       "cart": [
         {
-          "productId": "5",
-          "quantity": 1
+          "id": "1",
+          "name": "PlayStation 5 Digital Edition",
+          "price": 399.99,
+          "image": "https://images.unsplash.com/photo-1607016284318-d1384bf5edd1?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "quantity": 1,
+          "stock": 15
+        },
+        {
+          "id": "3",
+          "name": "Sony WH-1000XM4",
+          "price": 297.49150000000003,
+          "image": "https://images.unsplash.com/photo-1577174881658-0f30ed549adc?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "quantity": 1,
+          "stock": 50
         }
       ]
     }

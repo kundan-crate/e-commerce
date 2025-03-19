@@ -14,14 +14,14 @@ import CartItem from '../components/cart/CartItem';
 import CartSummary from '../components/cart/CartSummary';
 import { useNavigate } from 'react-router-dom';
 import { blueGrey } from '@mui/material/colors';
-import { useAuth } from '../context/AuthContext'; // Assuming you have an AuthContext
+import { useAuth } from '../context/AuthContext';
 
 export const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const { user } = useAuth(); // Get user from AuthContext
+  const { user } = useAuth();
 
   // Fetch user and their cart
   useEffect(() => {
@@ -59,27 +59,35 @@ export const Cart = () => {
         return;
       }
 
-      // Fetch full product details for each item in the cart
-      const productsResponse = await fetch('http://localhost:3000/products');
-      if (!productsResponse.ok) {
-        throw new Error('Failed to fetch products');
-      }
-
-      const allProducts = await productsResponse.json();
-
-      // Combine cart items with product details
-      const cartWithDetails = userData.cart.map(cartItem => {
-        const productDetails = allProducts.find(p => p.id === cartItem.productId);
-        if (!productDetails) {
-          return null; // Skip items with missing product details
+      // Check if cart items already have complete product details
+      if (userData.cart[0].name && userData.cart[0].price) {
+        // Cart already contains full product information
+        setCartItems(userData.cart);
+      } else {
+        // Original logic for carts that only contain productId and quantity
+        // Fetch full product details for each item in the cart
+        const productsResponse = await fetch('http://localhost:3000/products');
+        if (!productsResponse.ok) {
+          throw new Error('Failed to fetch products');
         }
-        return {
-          ...productDetails,
-          quantity: cartItem.quantity
-        };
-      }).filter(item => item !== null);
 
-      setCartItems(cartWithDetails);
+        const allProducts = await productsResponse.json();
+
+        // Combine cart items with product details
+        const cartWithDetails = userData.cart.map(cartItem => {
+          const productDetails = allProducts.find(p => p.id === cartItem.productId);
+          if (!productDetails) {
+            return null; // Skip items with missing product details
+          }
+          return {
+            ...productDetails,
+            quantity: cartItem.quantity
+          };
+        }).filter(item => item !== null);
+
+        setCartItems(cartWithDetails);
+      }
+      
       setError(null);
     } catch (err) {
       console.error('Error fetching cart:', err);
@@ -89,7 +97,7 @@ export const Cart = () => {
     }
   };
 
-  // Update updateQuantity, removeItem, and clearCart methods to use dynamic userId
+  // Update updateQuantity method to handle both cart data structures
   const updateQuantity = async (id, newQuantity) => {
     if (newQuantity < 1) return;
 
@@ -101,7 +109,7 @@ export const Cart = () => {
         throw new Error('User not found');
       }
 
-      // Rest of the method remains the same as in the original code
+      // Update local state
       setCartItems(cartItems.map(item =>
         item.id === id ? { ...item, quantity: newQuantity } : item
       ));
@@ -109,9 +117,20 @@ export const Cart = () => {
       const response = await fetch(`http://localhost:3000/users/${userId}`);
       const userData = await response.json();
 
-      const updatedCart = userData.cart.map(item =>
-        item.productId === id ? { ...item, quantity: newQuantity } : item
-      );
+      let updatedCart;
+      
+      // Check which cart structure we're dealing with
+      if (userData.cart[0].name && userData.cart[0].price) {
+        // Full product information in cart
+        updatedCart = userData.cart.map(item =>
+          item.id === id ? { ...item, quantity: newQuantity } : item
+        );
+      } else {
+        // Cart with productId and quantity only
+        updatedCart = userData.cart.map(item =>
+          item.productId === id ? { ...item, quantity: newQuantity } : item
+        );
+      }
 
       await fetch(`http://localhost:3000/users/${userId}`, {
         method: 'PATCH',
@@ -122,10 +141,11 @@ export const Cart = () => {
       });
     } catch (err) {
       console.error('Error updating cart:', err);
-      fetchCartItems(user);
+      fetchCartItems(user?.id || JSON.parse(localStorage.getItem('user'))?.id);
     }
   };
 
+  // Update removeItem method to handle both cart data structures
   const removeItem = async (id) => {
     try {
       // Determine userId from AuthContext or localStorage
@@ -135,13 +155,22 @@ export const Cart = () => {
         throw new Error('User not found');
       }
 
-      // Rest of the method remains similar to the original
+      // Update local state
       setCartItems(cartItems.filter(item => item.id !== id));
 
       const response = await fetch(`http://localhost:3000/users/${userId}`);
       const userData = await response.json();
 
-      const updatedCart = userData.cart.filter(item => item.productId !== id);
+      let updatedCart;
+      
+      // Check which cart structure we're dealing with
+      if (userData.cart[0].name && userData.cart[0].price) {
+        // Full product information in cart
+        updatedCart = userData.cart.filter(item => item.id !== id);
+      } else {
+        // Cart with productId and quantity only
+        updatedCart = userData.cart.filter(item => item.productId !== id);
+      }
 
       await fetch(`http://localhost:3000/users/${userId}`, {
         method: 'PATCH',
@@ -152,10 +181,11 @@ export const Cart = () => {
       });
     } catch (err) {
       console.error('Error removing item from cart:', err);
-      fetchCartItems(user);
+      fetchCartItems(user?.id || JSON.parse(localStorage.getItem('user'))?.id);
     }
   };
 
+  // The rest of your component remains the same...
   const clearCart = async () => {
     try {
       // Determine userId from AuthContext or localStorage
@@ -177,7 +207,7 @@ export const Cart = () => {
       });
     } catch (err) {
       console.error('Error clearing cart:', err);
-      fetchCartItems(user);
+      fetchCartItems(user?.id || JSON.parse(localStorage.getItem('user'))?.id);
     }
   };
 
@@ -186,12 +216,10 @@ export const Cart = () => {
   const tax = subtotal * 0.08;
   const total = subtotal + shipping + tax;
 
-  // Rest of the component remains the same
   const handleContinueShopping = () => {
     navigate('/products');
   };
 
-  // Rest of the return statement remains the same as in the original code
   if (loading) {
     return (
       <Container sx={{ py: 8, textAlign: 'center' }}>
