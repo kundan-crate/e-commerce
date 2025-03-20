@@ -101,25 +101,7 @@ export const AccountSettings = () => {
 
         {/* Appearance Settings */}
         <Grid item xs={12} md={6}>
-          <Paper variant="outlined" sx={{ p: 2 }}>
-            <Typography variant="h6" gutterBottom>
-              Appearance
-            </Typography>
-            <FormControlLabel
-              control={
-                <Switch
-                  checked={settings.darkMode}
-                  onChange={() => handleSettingToggle('darkMode')}
-                />
-              }
-              label="Dark Mode"
-            />
-          </Paper>
-        </Grid>
-
-        {/* Security Settings */}
-        <Grid item xs={12}>
-          <Paper variant="outlined" sx={{ p: 2 }}>
+        <Paper variant="outlined" sx={{ p: 2 }}>
             <Typography variant="h6" gutterBottom>
               Security
             </Typography>

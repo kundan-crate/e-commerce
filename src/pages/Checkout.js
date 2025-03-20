@@ -148,13 +148,26 @@ export const Checkout = () => {
         }
 
         const userData = await response.json();
-        console.log(userData);
         setCart(userData.cart || []);
-        setAddresses(userData.addresses || []);
+
+        // Transform addresses to match expected format if needed
+        const formattedAddresses = userData.addresses ? userData.addresses.map((addr, index) => ({
+          id: `addr-${index}`, // Generate ID for each address
+          fullName: userData.name || `${userData.firstName} ${userData.lastName}`,
+          line1: addr.street,
+          line2: '',
+          city: addr.city,
+          state: addr.state,
+          zipCode: addr.zipCode,
+          country: addr.country,
+          phone: userData.phone || ''
+        })) : [];
+
+        setAddresses(formattedAddresses);
 
         // Set default selected address if available
-        if (userData.addresses && userData.addresses.length > 0) {
-          setSelectedAddress(userData.addresses[0].id);
+        if (formattedAddresses.length > 0) {
+          setSelectedAddress(formattedAddresses[0].id);
         }
       } catch (err) {
         setError(err.message || 'Error fetching data');
@@ -175,6 +188,12 @@ export const Checkout = () => {
   }, []);
 
   const handleNext = () => {
+    // Add validation for the shipping step
+    if (activeStep === 1 && !selectedAddress) {
+      setError('Please select a shipping address');
+      return;
+    }
+
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
@@ -420,6 +439,11 @@ export const Checkout = () => {
                 addresses={addresses}
                 selectedAddress={selectedAddress}
                 handleAddressChange={handleAddressChange}
+                handleAddAddress={handleAddAddress}
+                handleAddressInputChange={handleAddressInputChange}
+                newAddress={newAddress}
+                showAddressForm={showAddressForm}
+                setShowAddressForm={setShowAddressForm}
                 handleNext={handleNext}
                 handleBack={handleBack}
               />

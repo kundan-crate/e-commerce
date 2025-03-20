@@ -1,63 +1,43 @@
-import React, { useState } from 'react';
-import { 
-  Paper, 
-  Typography, 
-  FormControl, 
-  FormLabel, 
-  RadioGroup, 
-  FormControlLabel, 
-  Radio, 
-  Box, 
-  Button, 
-  Collapse, 
-  Grid, 
-  TextField 
+import React from 'react';
+import {
+  Paper,
+  Typography,
+  FormControl,
+  FormLabel,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+  Box,
+  Button,
+  Collapse,
+  Grid,
+  TextField
 } from '@mui/material';
 import { ArrowBack as ArrowBackIcon, ArrowForward as ArrowForwardIcon, AddCircleOutline as AddIcon, Close as CloseIcon } from '@mui/icons-material';
 import Alert from '@mui/material/Alert';
 import { blueGrey } from '@mui/material/colors';
 
-export const ShippingDetails = ({ 
-  addresses, 
-  selectedAddress, 
-  handleAddressChange, 
-  handleNext, 
-  handleBack 
+export const ShippingDetails = ({
+  addresses,
+  selectedAddress,
+  handleAddressChange,
+  handleAddAddress,
+  handleAddressInputChange,
+  newAddress,
+  showAddressForm,
+  setShowAddressForm,
+  handleNext,
+  handleBack
 }) => {
-  const [showAddressForm, setShowAddressForm] = useState(false);
-  const [newAddress, setNewAddress] = useState({
-    fullName: '',
-    line1: '',
-    line2: '',
-    city: '',
-    state: '',
-    zipCode: '',
-    country: 'USA',
-    phone: ''
-  });
-
-  const handleAddressInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewAddress({
-      ...newAddress,
-      [name]: value
-    });
-  };
-
-  const handleAddAddress = (e) => {
-    e.preventDefault();
-    // Add address logic here
-  };
-
   return (
     <Paper elevation={3} sx={{ p: 3, mb: 3 }}>
       <Typography variant="h6" gutterBottom>
         Shipping Details
       </Typography>
-      
+
       <FormControl component="fieldset" sx={{ width: '100%', mb: 3 }}>
         <FormLabel component="legend">Select Delivery Address</FormLabel>
-        
+
         {addresses.length === 0 && !showAddressForm ? (
           <Alert severity="info" sx={{ mb: 2 }}>
             No addresses found. Please add a new address.
@@ -68,13 +48,13 @@ export const ShippingDetails = ({
             onChange={handleAddressChange}
           >
             {addresses.map((address) => (
-              <Paper 
-                key={address.id} 
-                variant="outlined" 
-                sx={{ 
-                  p: 2, 
-                  mb: 2, 
-                  borderColor: selectedAddress === address.id ? 'primary.main' : 'divider' 
+              <Paper
+                key={address.id}
+                variant="outlined"
+                sx={{
+                  p: 2,
+                  mb: 2,
+                  borderColor: selectedAddress === address.id ? 'primary.main' : 'divider'
                 }}
               >
                 <FormControlLabel
@@ -99,7 +79,7 @@ export const ShippingDetails = ({
             ))}
           </RadioGroup>
         )}
-        
+
         <Collapse in={showAddressForm}>
           <Paper variant="outlined" sx={{ p: 2, mb: 2 }}>
             <Typography variant="subtitle1" gutterBottom>
@@ -190,7 +170,7 @@ export const ShippingDetails = ({
                   variant="contained"
                   onClick={handleAddAddress}
                   fullWidth
-                  sx={{backgroundColor: `${blueGrey[500]}`}}
+                  sx={{ backgroundColor: `${blueGrey[500]}` }}
                 >
                   Save Address
                 </Button>
@@ -198,7 +178,7 @@ export const ShippingDetails = ({
             </Grid>
           </Paper>
         </Collapse>
-        
+
         <Button
           startIcon={showAddressForm ? <CloseIcon /> : <AddIcon />}
           onClick={() => setShowAddressForm(!showAddressForm)}
@@ -207,21 +187,21 @@ export const ShippingDetails = ({
           {showAddressForm ? 'Cancel' : 'Add New Address'}
         </Button>
       </FormControl>
-      
+
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 3 }}>
-        <Button 
+        <Button
           onClick={handleBack}
           startIcon={<ArrowBackIcon />}
-          sx={{color: `${blueGrey[800]}`}}
+          sx={{ color: `${blueGrey[800]}` }}
         >
           Back to Cart
         </Button>
         <Button
-          variant="contained" 
+          variant="contained"
           onClick={handleNext}
           endIcon={<ArrowForwardIcon />}
-          disabled={selectedAddress}
-          sx={{backgroundColor: `${blueGrey[500]}`}}
+          disabled={!selectedAddress}
+          sx={{ backgroundColor: `${blueGrey[500]}` }}
         >
           Continue to Payment
         </Button>
