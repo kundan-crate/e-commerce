@@ -370,39 +370,27 @@
           "country": "India"
         }
       ],
-      "orders": [
+      "orders": [],
+      "cart": []
+    },
+    {
+      "id": "870b",
+      "email": "ani@gmail.com",
+      "password": "anil2000",
+      "firstName": "Anil",
+      "lastName": "Gusidi",
+      "name": "Anil Gusidi",
+      "phone": "7207362090",
+      "addresses": [
         {
-          "id": "order-1742468159891",
-          "items": [
-            {
-              "id": "5",
-              "name": "Logitech G Pro X Superlight",
-              "price": 142.4905,
-              "image": "https://images.unsplash.com/photo-1616071358846-9f34f471815d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              "quantity": 1,
-              "stock": 25
-            }
-          ],
-          "shippingAddress": {
-            "id": "addr-0",
-            "fullName": "Kundan Bandaru",
-            "line1": "14-240, Radharam Auditors, VL Puram",
-            "line2": "",
-            "city": "Rajahmundry",
-            "state": "Andhra Pradesh",
-            "zipCode": "533107",
-            "country": "India",
-            "phone": "9866471101"
-          },
-          "paymentMethod": "cod",
-          "subtotal": 142.4905,
-          "shipping": 5.99,
-          "tax": 11.39924,
-          "total": 159.87974,
-          "status": "pending",
-          "createdAt": "2025-03-20T10:55:59.891Z"
+          "street": "Vimala Nilayam, Modal colony",
+          "city": "Rajahmundry",
+          "state": "Andhra Pradesh",
+          "zipCode": "533106",
+          "country": "India"
         }
       ],
+      "orders": [],
       "cart": []
     }
   ]

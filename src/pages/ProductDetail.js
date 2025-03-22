@@ -27,8 +27,8 @@ import {
   ShoppingCart as ShoppingCartIcon,
 } from '@mui/icons-material';
 import { blueGrey } from '@mui/material/colors';
-import { useCart } from '../context/CartContext'; // Import the cart hook
-import { useAuth } from '../context/AuthContext'; // Import the auth hook - assume it exists
+import { useCart } from '../context/CartContext'; 
+import { useAuth } from '../context/AuthContext'; 
 
 export const ProductDetail = () => {
   const { id } = useParams();
@@ -42,7 +42,7 @@ export const ProductDetail = () => {
   // Get cart functions from context
   const { addToCart } = useCart();
   // Get user from auth context
-  const { user } = useAuth(); // Changed from currentUser to user
+  const { user } = useAuth(); 
 
   useEffect(() => {
     fetchProduct();
