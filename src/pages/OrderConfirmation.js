@@ -55,7 +55,7 @@ export const OrderConfirmation = () => {
       try {
         setLoading(true);
 
-        const response = await fetch(`http://localhost:3000/users/${user.id}`);
+        const response = await fetch(`http://localhost:3001/users/${user.id}`);
         if (!response.ok) {
           throw new Error(`Failed to fetch user data: ${response.statusText}`);
         }
@@ -104,7 +104,7 @@ export const OrderConfirmation = () => {
     e.preventDefault();
     try {
       // Get current user data
-      const userResponse = await fetch(`http://localhost:3000/users/${user.id}`);
+      const userResponse = await fetch(`http://localhost:3001/users/${user.id}`);
 
       if (!userResponse.ok) {
         throw new Error('Failed to fetch user data for review submission');
@@ -131,7 +131,7 @@ export const OrderConfirmation = () => {
       const updatedReviews = [...(userData.reviews || []), newReview];
 
       // Update user record
-      const updateResponse = await fetch(`http://localhost:3000/users/${user.id}`, {
+      const updateResponse = await fetch(`http://localhost:3001/users/${user.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -148,7 +148,7 @@ export const OrderConfirmation = () => {
       setReviewSubmitted(true);
       setTimeout(() => {
         setShowReviewForm(false);
-      }, 3000);
+      }, 3001);
     } catch (err) {
       console.error("Error submitting review:", err);
       setError(err.message || 'Failed to submit review');
@@ -218,7 +218,7 @@ export const OrderConfirmation = () => {
     <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
       <Snackbar
         open={reviewSubmitted}
-        autoHideDuration={3000}
+        autoHideDuration={3001}
         onClose={() => setReviewSubmitted(false)}
       >
         <Alert severity="success">Review submitted successfully!</Alert>

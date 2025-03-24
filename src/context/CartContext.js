@@ -140,7 +140,7 @@ export const CartProvider = ({ children }) => {
           // Add a console.log to debug
           console.log("Loading cart for user:", user.id);
 
-          const response = await fetch(`http://localhost:3000/users/${user.id}`);
+          const response = await fetch(`http://localhost:3001/users/${user.id}`);
           if (!response.ok) {
             throw new Error('Failed to fetch user data');
           }
@@ -193,7 +193,7 @@ export const CartProvider = ({ children }) => {
           console.log("Saving cart for user:", user.id, "Items:", state.items);
 
           // Fetch current user data
-          const response = await fetch(`http://localhost:3000/users/${user.id}`);
+          const response = await fetch(`http://localhost:3001/users/${user.id}`);
           if (!response.ok) {
             throw new Error('Failed to fetch user data');
           }
@@ -206,7 +206,7 @@ export const CartProvider = ({ children }) => {
           };
 
           // Save updated user data back to server
-          const updateResponse = await fetch(`http://localhost:3000/users/${user.id}`, {
+          const updateResponse = await fetch(`http://localhost:3001/users/${user.id}`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
@@ -244,7 +244,7 @@ export const CartProvider = ({ children }) => {
           const guestItems = JSON.parse(localCart);
           if (guestItems.length > 0) {
             try {
-              const response = await fetch(`http://localhost:3000/users/${user.id}`);
+              const response = await fetch(`http://localhost:3001/users/${user.id}`);
               if (!response.ok) {
                 throw new Error('Failed to fetch user data for merging');
               }
@@ -265,7 +265,7 @@ export const CartProvider = ({ children }) => {
                 cart: mergedItems,
               };
 
-              await fetch(`http://localhost:3000/users/${user.id}`, {
+              await fetch(`http://localhost:3001/users/${user.id}`, {
                 method: 'PUT',
                 headers: {
                   'Content-Type': 'application/json',

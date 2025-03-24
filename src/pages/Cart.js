@@ -45,7 +45,7 @@ export const Cart = () => {
       setLoading(true);
 
       // Fetch the user with their cart data
-      const response = await fetch(`http://localhost:3000/users/${userId}`);
+      const response = await fetch(`http://localhost:3001/users/${userId}`);
       if (!response.ok) {
         throw new Error('Failed to fetch user data');
       }
@@ -66,7 +66,7 @@ export const Cart = () => {
       } else {
         // Original logic for carts that only contain productId and quantity
         // Fetch full product details for each item in the cart
-        const productsResponse = await fetch('http://localhost:3000/products');
+        const productsResponse = await fetch('http://localhost:3001/products');
         if (!productsResponse.ok) {
           throw new Error('Failed to fetch products');
         }
@@ -114,7 +114,7 @@ export const Cart = () => {
         item.id === id ? { ...item, quantity: newQuantity } : item
       ));
 
-      const response = await fetch(`http://localhost:3000/users/${userId}`);
+      const response = await fetch(`http://localhost:3001/users/${userId}`);
       const userData = await response.json();
 
       let updatedCart;
@@ -132,7 +132,7 @@ export const Cart = () => {
         );
       }
 
-      await fetch(`http://localhost:3000/users/${userId}`, {
+      await fetch(`http://localhost:3001/users/${userId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -158,7 +158,7 @@ export const Cart = () => {
       // Update local state
       setCartItems(cartItems.filter(item => item.id !== id));
 
-      const response = await fetch(`http://localhost:3000/users/${userId}`);
+      const response = await fetch(`http://localhost:3001/users/${userId}`);
       const userData = await response.json();
 
       let updatedCart;
@@ -172,7 +172,7 @@ export const Cart = () => {
         updatedCart = userData.cart.filter(item => item.productId !== id);
       }
 
-      await fetch(`http://localhost:3000/users/${userId}`, {
+      await fetch(`http://localhost:3001/users/${userId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -198,7 +198,7 @@ export const Cart = () => {
       // Update local state immediately
       setCartItems([]);
 
-      await fetch(`http://localhost:3000/users/${userId}`, {
+      await fetch(`http://localhost:3001/users/${userId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

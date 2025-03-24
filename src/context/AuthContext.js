@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
 
     try {
       // Check if user already exists
-      const checkUser = await fetch(`http://localhost:3000/users?email=${userData.email}`);
+      const checkUser = await fetch(`http://localhost:3001/users?email=${userData.email}`);
       const existingUser = await checkUser.json();
       
       if (existingUser.length > 0) {
@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
       }
 
       // Create new user
-      const response = await fetch('http://localhost:3000/users', {
+      const response = await fetch('http://localhost:3001/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
 
     try {
-      const response = await fetch(`http://localhost:3000/users?email=${email}`);
+      const response = await fetch(`http://localhost:3001/users?email=${email}`);
       const users = await response.json();
 
       if (users.length === 0) {
@@ -108,7 +108,7 @@ export const AuthProvider = ({ children }) => {
         return { success: false, error: 'User not authenticated' };
       }
 
-      const response = await fetch(`http://localhost:3000/users/${user.id}`, {
+      const response = await fetch(`http://localhost:3001/users/${user.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

@@ -53,7 +53,7 @@ export const ProductDetail = () => {
     try {
       setLoading(true);
       // First, fetch the entire products array
-      const response = await fetch('http://localhost:3000/products');
+      const response = await fetch('http://localhost:3001/products');
       if (!response.ok) {
         throw new Error('Failed to fetch products');
       }
@@ -91,7 +91,7 @@ export const ProductDetail = () => {
       const userId = user.id; // Changed from currentUser to user
       
       // Get current user data including their cart
-      const response = await fetch(`http://localhost:3000/users/${userId}`);
+      const response = await fetch(`http://localhost:3001/users/${userId}`);
       if (!response.ok) throw new Error("Failed to fetch user data");
       
       const userData = await response.json();
@@ -111,7 +111,7 @@ export const ProductDetail = () => {
       }
       
       // Update the user's cart in the database
-      const updateResponse = await fetch(`http://localhost:3000/users/${userId}`, {
+      const updateResponse = await fetch(`http://localhost:3001/users/${userId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

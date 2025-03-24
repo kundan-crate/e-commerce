@@ -141,7 +141,7 @@ export const Checkout = () => {
         setLoading(true);
 
         // Fetch user data including cart and addresses
-        const response = await fetch(`http://localhost:3000/users/${user.id}`);
+        const response = await fetch(`http://localhost:3001/users/${user.id}`);
 
         if (!response.ok) {
           throw new Error('Failed to fetch user data');
@@ -222,7 +222,7 @@ export const Checkout = () => {
 
     try {
       // Get current user data
-      const userResponse = await fetch(`http://localhost:3000/users/${user.id}`);
+      const userResponse = await fetch(`http://localhost:3001/users/${user.id}`);
 
       const userData = await userResponse.json();
 
@@ -236,7 +236,7 @@ export const Checkout = () => {
       const updatedAddresses = [...(userData.addresses || []), addressWithId];
 
       // Update user record
-      const updateResponse = await fetch(`http://localhost:3000/users/${user.id}`, {
+      const updateResponse = await fetch(`http://localhost:3001/users/${user.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -304,7 +304,7 @@ export const Checkout = () => {
       setProcessingOrder(true);
 
       // Get current user data
-      const userResponse = await fetch(`http://localhost:3000/users/${user.id}`);
+      const userResponse = await fetch(`http://localhost:3001/users/${user.id}`);
 
       const userData = await userResponse.json();
 
@@ -326,7 +326,7 @@ export const Checkout = () => {
       const updatedOrders = [...(userData.orders || []), newOrder];
 
       // Update user record
-      const updateResponse = await fetch(`http://localhost:3000/users/${user.id}`, {
+      const updateResponse = await fetch(`http://localhost:3001/users/${user.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
